@@ -2,7 +2,7 @@ package modelo;
 
 import java.time.LocalDate;
 
-public class Estuadiante {
+public class Estudiante {
 
     private final String documentoIdentidad;
     private final String nombreCompleto;
@@ -11,7 +11,7 @@ public class Estuadiante {
     private final int edad;
     private final LocalDate fechaRegistro;
 
-    public Estuadiante(String documentoIdentidad, String nombreCompleto, String telefono, String correoElectronico, int edad, LocalDate fechaRegistro) {
+    public Estudiante(String documentoIdentidad, String nombreCompleto, String telefono, String correoElectronico, int edad, LocalDate fechaRegistro) {
         this.documentoIdentidad = documentoIdentidad;
         this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;

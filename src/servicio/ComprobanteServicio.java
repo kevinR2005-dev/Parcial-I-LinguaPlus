@@ -1,4 +1,4 @@
-package modelo.servicio;
+package servicio;
 
 public class ComprobanteServicio {
 }

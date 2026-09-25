@@ -1,4 +1,4 @@
-package modelo.repositorio;
+package repositorio;
 
 public class PeriodoRepositorio {
 }
