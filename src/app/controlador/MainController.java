@@ -1,13 +1,10 @@
 package app.controlador;
 
 import modelo.*;
-import patrones.builder.MatriculaBuilder;
-import patrones.factory.ProgramaFactory;
 import repositorio.Repositorio;
 import repositorio.RepositorioMemoria;
 import servicio.*;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -62,7 +59,7 @@ public class MainController {
     @FXML private TextField txtIdiomaPrograma;
     @FXML private TextField txtDuracionPrograma;
     @FXML private TextField txtValorPrograma;
-    @FXML private ComboBox<ProgramaFactory.TipoPrograma> comboTipoPrograma;
+    @FXML private ComboBox<Programa.ProgramaFactory.TipoPrograma> comboTipoPrograma;
     @FXML private ComboBox<Modalidad> comboModalidadPrograma;
     @FXML private TableView<Programa> tablaProgramas;
     @FXML private TableColumn<Programa, String> colCodigoPrograma;
@@ -110,7 +107,7 @@ public class MainController {
                 new SimpleStringProperty(formatearMoneda(cell.getValue().calcularValorFinal())));
         tablaProgramas.setItems(listaProgramas);
 
-        comboTipoPrograma.setItems(FXCollections.observableArrayList(ProgramaFactory.TipoPrograma.values()));
+        comboTipoPrograma.setItems(FXCollections.observableArrayList(Programa.ProgramaFactory.TipoPrograma.values()));
         comboModalidadPrograma.setItems(FXCollections.observableArrayList(Modalidad.values()));
 
         // --- Tabla matriculas ---
@@ -161,19 +158,19 @@ public class MainController {
     @FXML
     private void registrarPrograma() {
         try {
-            ProgramaFactory.TipoPrograma tipo = comboTipoPrograma.getValue();
+            Programa.ProgramaFactory.TipoPrograma tipo = comboTipoPrograma.getValue();
             Modalidad modalidad = comboModalidadPrograma.getValue();
             if (tipo == null || modalidad == null) {
                 mostrarError("Selecciona tipo y modalidad");
                 return;
             }
-            if (tipo == ProgramaFactory.TipoPrograma.PERSONALIZADO) {
+            if (tipo == Programa.ProgramaFactory.TipoPrograma.PERSONALIZADO) {
                 mostrarError("Los programas Personalizados requieren datos adicionales; "
                         + "usa el formulario de Personalizado (pendiente) o el PersonalizadoBuilder.");
                 return;
             }
             // Factory Method: Basico o Intensivo.
-            Programa programa = ProgramaFactory.crear(
+            Programa programa = Programa.ProgramaFactory.crear(
                     tipo,
                     txtCodigoPrograma.getText(),
                     txtNombrePrograma.getText(),
@@ -216,7 +213,7 @@ public class MainController {
 
             // Builder: valida programa obligatorio y descuento <= 30%,
             // y usa el Singleton GeneradorMatricula para el consecutivo.
-            Matricula matricula = new MatriculaBuilder()
+            Matricula matricula = new Matricula.MatriculaBuilder()
                     .estudiante(estudiante)
                     .programa(programa)
                     .fechaInicio(fecha)

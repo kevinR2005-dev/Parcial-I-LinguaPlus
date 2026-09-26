@@ -56,7 +56,7 @@ public abstract class Programa {
     /** Cada subtipo concreto define cómo calcula su valor base. */
     public abstract double calcularValorBase();
 
- /** Para que los combos de los programas se vean como: (nombre de programa + código + idioma) */
+    /** Para que los combos de los programas se vean como: (nombre de programa + código + idioma) */
     @Override
     public String toString() {
         return nombre + " (" + codigo + ") - " + idioma;
