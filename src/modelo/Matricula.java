@@ -127,6 +127,7 @@ public class Matricula {
             return matricula;
         }
     }
+}
 
     /**
      * Singleton: garantiza un unico consecutivo de numero de matricula en
