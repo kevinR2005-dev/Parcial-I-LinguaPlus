@@ -1,4 +1,9 @@
 package modelo.comprobante;
 
-public class GeneradorPdf {
+public class GeneradorPdf extends GeneradorComprobante{
+
+    @Override
+    protected Comprobante crearComprobante() {
+        return new ComprobantePdf();
+    }
 }
