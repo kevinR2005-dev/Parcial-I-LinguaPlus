@@ -8,11 +8,12 @@
          xmlns:fx="http://javafx.com/fxml"
          fx:controller="app.controlador.MainController"
          tabClosingPolicy="UNAVAILABLE">
-
     <!-- ===================== TAB ESTUDIANTES ===================== -->
     <Tab text="Estudiantes">
         <VBox spacing="10">
-            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
 
             <GridPane hgap="8" vgap="8">
                 <Label text="Nombre completo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
@@ -47,7 +48,9 @@
     <!-- ===================== TAB PROGRAMAS ===================== -->
     <Tab text="Programas">
         <VBox spacing="10">
-            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
 
             <GridPane hgap="8" vgap="8">
                 <Label text="Codigo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
@@ -89,7 +92,9 @@
     <!-- ===================== TAB MATRICULAS ===================== -->
     <Tab text="Matriculas">
         <VBox spacing="10">
-            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
 
             <GridPane hgap="8" vgap="8">
                 <Label text="Estudiante:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
@@ -126,11 +131,15 @@
     <!-- ===================== TAB CONSULTAS ===================== -->
     <Tab text="Consultas">
         <VBox spacing="15">
-            <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
 
             <TitledPane text="Buscar estudiante por telefono / numero perfecto" expanded="true">
                 <VBox spacing="8">
-                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
                     <HBox spacing="8">
                         <TextField fx:id="txtTelefonoConsulta" promptText="Numero de telefono"/>
                         <Button text="Consultar" onAction="#consultarPorTelefono"/>
@@ -141,7 +150,9 @@
 
             <TitledPane text="Ingresos por periodo" expanded="true">
                 <VBox spacing="8">
-                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
                     <HBox spacing="8">
                         <Label text="Desde:"/>
                         <DatePicker fx:id="fechaDesdeIngresos"/>

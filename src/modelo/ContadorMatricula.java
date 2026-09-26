@@ -6,7 +6,8 @@ public class ContadorMatricula {
 
     private int ultimo = 0;
 
-    private ContadorMatricula() { }
+    private ContadorMatricula() {
+    }
 
     public static ContadorMatricula getInstancia() {
         return INSTANCIA;
