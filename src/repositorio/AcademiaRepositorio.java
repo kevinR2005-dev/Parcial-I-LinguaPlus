@@ -4,11 +4,11 @@ import java.util.*;
 import java.util.function.Function;
 
 
-public class DocenteRepositorio<T, ID> implements Repositorio<T, ID> {
+public class AcademiaRepositorio<T, ID> implements Repositorio<T, ID> {
     private final Map<ID, T> datos = new LinkedHashMap<>();
     private final Function<T, ID> extractorId;
 
-    public DocenteRepositorio(Function<T, ID> extractorId) {
+    public AcademiaRepositorio(Function<T, ID> extractorId) {
         this.extractorId = extractorId;
     }
 
