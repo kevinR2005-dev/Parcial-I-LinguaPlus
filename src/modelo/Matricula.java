@@ -118,7 +118,7 @@ public class Matricula {
             if (programa == null) {
                 throw new IllegalStateException("No puede existir una matricula sin programa");
             }
-            int numero = GeneradorMatricula.getInstancia().siguienteNumero();
+            int numero = ContadorMatricula.getInstancia().siguiente();
             Matricula matricula = new Matricula(numero, estudiante, programa, fechaInicio);
             matricula.setDocenteTutor(docenteTutor);
             matricula.setDescuentoPorcentaje(descuentoPorcentaje);
