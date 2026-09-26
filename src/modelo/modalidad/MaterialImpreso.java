@@ -1,4 +1,9 @@
 package modelo.modalidad;
 
-public class MaterialImpreso {
+public class MaterialImpreso implements Material{
+    @Override
+    public String describir() {
+        return "Material impreso";
+    }
 }
+
