@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Matricula {
     private int numeroMatricula;                 // obligatorio, consecutivo, único
     private Estudiante estudiante;                // obligatorio
@@ -25,26 +29,54 @@ public class Matricula {
         this.fechaInicio = fechaInicio;
     }
 
-    public int getNumeroMatricula() { return numeroMatricula; }
+    public int getNumeroMatricula() {
+        return numeroMatricula;
+    }
 
-    public Estudiante getEstudiante() { return estudiante; }
-    public void setEstudiante(Estudiante estudiante) { this.estudiante = estudiante; }
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
 
-    public Programa getPrograma() { return programa; }
-    public void setPrograma(Programa programa) { this.programa = programa; }
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
 
-    public LocalDate getFechaInicio() { return fechaInicio; }
-    public void setFechaInicio(LocalDate fechaInicio) { this.fechaInicio = fechaInicio; }
+    public Programa getPrograma() {
+        return programa;
+    }
 
-    public Docente getDocenteTutor() { return docenteTutor; }
-    public void setDocenteTutor(Docente docenteTutor) { this.docenteTutor = docenteTutor; }
+    public void setPrograma(Programa programa) {
+        this.programa = programa;
+    }
 
-    public List<ServicioAdicional> getServiciosAdicionales() { return serviciosAdicionales; }
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public Docente getDocenteTutor() {
+        return docenteTutor;
+    }
+
+    public void setDocenteTutor(Docente docenteTutor) {
+        this.docenteTutor = docenteTutor;
+    }
+
+    public List<ServicioAdicional> getServiciosAdicionales() {
+        return serviciosAdicionales;
+    }
+
     public void agregarServicioAdicional(ServicioAdicional servicio) {
         this.serviciosAdicionales.add(servicio);
     }
 
-    public double getDescuentoPorcentaje() { return descuentoPorcentaje; }
+    public double getDescuentoPorcentaje() {
+        return descuentoPorcentaje;
+    }
+
     public void setDescuentoPorcentaje(double descuentoPorcentaje) {
         if (descuentoPorcentaje > 30) {
             throw new IllegalArgumentException("El descuento no puede superar el 30%");
@@ -52,10 +84,17 @@ public class Matricula {
         this.descuentoPorcentaje = descuentoPorcentaje;
     }
 
-    public String getObservaciones() { return observaciones; }
-    public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+    public String getObservaciones() {
+        return observaciones;
+    }
 
-    /** Valor del programa + servicios adicionales, menos el descuento. */
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    /**
+     * Valor del programa + servicios adicionales, menos el descuento.
+     */
     public double calcularValorFinal() {
         double valorServicios = serviciosAdicionales.stream()
                 .mapToDouble(ServicioAdicional::getPrecio)
@@ -118,7 +157,7 @@ public class Matricula {
             if (programa == null) {
                 throw new IllegalStateException("No puede existir una matricula sin programa");
             }
-            int numero = GeneradorMatricula.getInstancia().siguienteNumero();
+            int numero = ContadorMatricula.getInstancia().siguiente();
             Matricula matricula = new Matricula(numero, estudiante, programa, fechaInicio);
             matricula.setDocenteTutor(docenteTutor);
             matricula.setDescuentoPorcentaje(descuentoPorcentaje);
