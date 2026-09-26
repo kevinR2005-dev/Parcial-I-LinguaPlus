@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="app.controlador.MainController"
+         tabClosingPolicy="UNAVAILABLE">
+
+    <!-- ===================== TAB ESTUDIANTES ===================== -->
+    <Tab text="Estudiantes">
+        <VBox spacing="10">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+            <GridPane hgap="8" vgap="8">
+                <Label text="Nombre completo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtNombreEstudiante" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Documento:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtDocumentoEstudiante" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Telefono:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtTelefonoEstudiante" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Correo:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtCorreoEstudiante" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Edad:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtEdadEstudiante" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <Button text="Registrar estudiante" onAction="#registrarEstudiante"/>
+
+            <TableView fx:id="tablaEstudiantes" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colNombreEstudiante" text="Nombre" prefWidth="200"/>
+                    <TableColumn fx:id="colDocumentoEstudiante" text="Documento" prefWidth="120"/>
+                    <TableColumn fx:id="colTelefonoEstudiante" text="Telefono" prefWidth="120"/>
+                    <TableColumn fx:id="colCorreoEstudiante" text="Correo" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </Tab>
+
+    <!-- ===================== TAB PROGRAMAS ===================== -->
+    <Tab text="Programas">
+        <VBox spacing="10">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+            <GridPane hgap="8" vgap="8">
+                <Label text="Codigo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtCodigoPrograma" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtNombrePrograma" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Idioma:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtIdiomaPrograma" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Duracion (meses):" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtDuracionPrograma" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Valor mensual:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtValorPrograma" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Tipo:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="comboTipoPrograma" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                <Label text="Modalidad:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboModalidadPrograma" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <Button text="Registrar programa" onAction="#registrarPrograma"/>
+
+            <TableView fx:id="tablaProgramas" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colCodigoPrograma" text="Codigo" prefWidth="80"/>
+                    <TableColumn fx:id="colNombrePrograma" text="Nombre" prefWidth="150"/>
+                    <TableColumn fx:id="colIdiomaPrograma" text="Idioma" prefWidth="100"/>
+                    <TableColumn fx:id="colModalidadPrograma" text="Modalidad" prefWidth="100"/>
+                    <TableColumn fx:id="colValorPrograma" text="Valor base" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </Tab>
+
+    <!-- ===================== TAB MATRICULAS ===================== -->
+    <Tab text="Matriculas">
+        <VBox spacing="10">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+            <GridPane hgap="8" vgap="8">
+                <Label text="Estudiante:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboEstudianteMatricula" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Programa:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="comboProgramaMatricula" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Fecha inicio:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="fechaInicioMatricula" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Descuento (%):" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtDescuentoMatricula" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Observaciones:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtObservacionesMatricula" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                           GridPane.columnSpan="3"/>
+            </GridPane>
+
+            <Button text="Registrar matricula" onAction="#registrarMatricula"/>
+
+            <TableView fx:id="tablaMatriculas" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colNumeroMatricula" text="No." prefWidth="50"/>
+                    <TableColumn fx:id="colEstudianteMatricula" text="Estudiante" prefWidth="180"/>
+                    <TableColumn fx:id="colProgramaMatricula" text="Programa" prefWidth="150"/>
+                    <TableColumn fx:id="colFechaMatricula" text="Fecha inicio" prefWidth="100"/>
+                    <TableColumn fx:id="colValorMatricula" text="Valor final" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </Tab>
+
+    <!-- ===================== TAB CONSULTAS ===================== -->
+    <Tab text="Consultas">
+        <VBox spacing="15">
+            <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+            <TitledPane text="Buscar estudiante por telefono / numero perfecto" expanded="true">
+                <VBox spacing="8">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <HBox spacing="8">
+                        <TextField fx:id="txtTelefonoConsulta" promptText="Numero de telefono"/>
+                        <Button text="Consultar" onAction="#consultarPorTelefono"/>
+                    </HBox>
+                    <Label fx:id="lblResultadoTelefono" wrapText="true"/>
+                </VBox>
+            </TitledPane>
+
+            <TitledPane text="Ingresos por periodo" expanded="true">
+                <VBox spacing="8">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <HBox spacing="8">
+                        <Label text="Desde:"/>
+                        <DatePicker fx:id="fechaDesdeIngresos"/>
+                        <Label text="Hasta:"/>
+                        <DatePicker fx:id="fechaHastaIngresos"/>
+                        <Button text="Calcular" onAction="#calcularIngresos"/>
+                    </HBox>
+                    <Label fx:id="lblResultadoIngresos" wrapText="true"/>
+                </VBox>
+            </TitledPane>
+        </VBox>
+    </Tab>
+
+</TabPane>
